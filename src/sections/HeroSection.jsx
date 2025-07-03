@@ -54,7 +54,7 @@ const HeroSection = () => {
     <section className="bg-main-bg ">
       <div className="hero-container">
         <img
-          className="abs-center object-auto scale-100 md:scale-150"
+          className="abs-center object-auto scale-100 md:scale-100"
           src="/images/static-img.png"
           alt="hero-img"
         />
