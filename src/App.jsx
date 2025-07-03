@@ -1,22 +1,31 @@
-import React from 'react'
-import NavBar from './components/NavBar'
-import HeroSection from './sections/HeroSection'
-import { ScrollTrigger, gsap } from 'gsap/all'
-import MessageSection from './sections/MessageSection'
-import FlavourSection from './sections/FlavorSection'
+import NavBar from "./components/NavBar";
+import HeroSection from "./sections/HeroSection";
+import { ScrollSmoother, ScrollTrigger, gsap } from "gsap/all";
+import MessageSection from "./sections/MessageSection";
+import FlavourSection from "./sections/FlavorSection";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger)
-
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const App = () => {
+  useGSAP(() => {
+    ScrollSmoother.create({
+      smooth: 3,
+      effects: true,
+    });
+  });
   return (
     <main>
       <NavBar />
-      <HeroSection />
-     <MessageSection />
-     <FlavourSection />
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <HeroSection />
+          <MessageSection />
+          <FlavourSection />
+        </div>
+      </div>
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;
