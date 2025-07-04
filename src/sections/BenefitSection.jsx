@@ -45,7 +45,8 @@ const BenefitSection = () => {
   return (
     <section className="benefit-section">
       <div className="container mx-auto pt-20">
-        <p>
+       <div className="col-center">
+       <p>
           Unlock the Advantages: <br /> Explore the Key Benefits of Choosing
           SPYLT
         </p>
@@ -82,6 +83,7 @@ const BenefitSection = () => {
         <div className="md:mt-0 mt-10">
           <p>And much more ...</p>
         </div>
+       </div>
       </div>
     </section>
   );
