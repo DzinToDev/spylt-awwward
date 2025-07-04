@@ -5,6 +5,7 @@ import React from "react";
 const MessageSection = () => {
 
     useGSAP(()=> {
+
         const firstMsgSplit = SplitText.create(".first-message", {
             type: "words"
         })
@@ -21,7 +22,7 @@ const MessageSection = () => {
             ease: "power1.in",
             stagger: 1,
             scrollTrigger: {
-                trigger: "message-content",
+                trigger: ".message-content",
                 // markers: true,
                 start: "top center",
                 end: "30% center",
@@ -33,7 +34,7 @@ const MessageSection = () => {
             ease: "power1.in",
             stagger: 1,
             scrollTrigger: {
-                trigger: ".second-content",
+                trigger: ".second-message",
                 // markers: true,
                 start: "top center",
                 end: "bottom center",
@@ -57,18 +58,20 @@ const MessageSection = () => {
         })
 
         const paragraphTl = gsap.timeline({
-            scrollTrigger: ".message-content p",
-            start: "top center",
-            // markers: true
+            scrollTrigger:{
+             trigger: ".message-content p",
+              start: "top center",
+              // markers: true
+            }
         })
         paragraphTl.from(paragraphMsgSplit.words, {
             yPercent: 300,
             rotate: 3,
             ease: "power1.inOut",
-            dusrtion: 1,
+            duration: 1,
             stagger: 0.01
         })
-    })
+    }, [])
 
   return (
     <section className="message-content">
