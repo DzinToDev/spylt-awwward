@@ -49,13 +49,13 @@ const TestimonialSection = () => {
         ease: "power1.inOut",
         
     })
-  });
+  }, []);
 
   const handlePlay = (index) => {
     const video = vdRef.current[index];
     video.play();
   };
-  const handelPause = (index) => {
+  const handlePause = (index) => {
     const video = vdRef.current[index];
     video.pause();
   };
@@ -73,7 +73,7 @@ const TestimonialSection = () => {
             key={index}
             className={`vd-card ${card.translation} ${card.rotation} `}
             onMouseEnter={() => handlePlay(index)}
-            onMouseLeave={() => handelPause(index)}
+            onMouseLeave={() => handlePause(index)}
           >
             <video
               ref={(el) => (vdRef.current[index] = el)}
